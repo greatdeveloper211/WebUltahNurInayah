@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎉</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #ffc0cb, #fff);
+            text-align: center;
+            color: #333;
+        }
+        
+        .container {
+            padding: 30px 20px;
+        }
+        
+        h1 {
+            color: #ff4d6d;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 350px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn {
+            padding: 14px 24px;
+            background: #ff4d6d;
+            color: white;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        /* POPUP */
+        
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 182, 193, 0.4);
+            backdrop-filter: blur(6px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .popup-content {
+            background: white;
+            padding: 25px;
+            border-radius: 25px;
+            width: 85%;
+            max-width: 320px;
+            text-align: center;
+            animation: pop 0.5s ease;
+            z-index: 2;
+        }
+        
+        .popup-content p {
+            white-space: pre-line;
+        }
+        
+        .close {
+            margin-top: 15px;
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        @keyframes pop {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        /* HEART */
+        
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🎉 Happy Birthday 🎉</h1>
+
+        <div class="card">
+            <p>
+                Hari ini adalah hari spesial 🎂✨<br> Semoga semua kebahagiaan selalu datang ke kamu 💖
+            </p>
+        </div>
+
+        <div class="card">
+            <p>
+                Jangan lupa untuk selalu tersenyum 🌷<br> Kamu hebat sudah sampai sejauh ini 💫
+            </p>
+        </div>
+
+        <button class="btn" onclick="openPopup()">
+      Klik untuk peluk virtual 🤗
+    </button>
+    </div>
+
+    <!-- POPUP -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>🤗 Untuk Kamu</h2>
+            <p id="typing"></p>
+            <button class="close" onclick="closePopup()">Tutup 💕</button>
+        </div>
+    </div>
+
+    <script>
+        const text = `Dear Nur Inayah 💖
+
+Jangan lupa untuk selalu tersenyum.
+Thanks udah bertahan sejauh ini 🌷✨
+
+Sincerely,
+Mufidah
+24.04.26`;
+
+        let i = 0;
+
+        function typingEffect() {
+            if (i < text.length) {
+                document.getElementById("typing").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typingEffect, 40);
+            }
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.className = "heart";
+                heart.innerHTML = "💖";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+                document.getElementById("popup").appendChild(heart);
+            }
+        }
+
+        function openPopup() {
+            document.getElementById("popup").style.display = "flex";
+            document.getElementById("typing").innerHTML = "";
+            i = 0;
+            typingEffect();
+            createHearts();
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.querySelectorAll(".heart").forEach(e => e.remove());
+        }
+    </script>
+
+</body>
+
+</html>
