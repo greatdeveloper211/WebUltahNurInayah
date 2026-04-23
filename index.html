@@ -21,16 +21,30 @@
         
         h1 {
             color: #ff4d6d;
-            margin-top: 40px;
+            margin-top: 20px;
         }
         
         .card {
             background: white;
-            margin: 20px auto;
+            margin: 15px auto;
             padding: 20px;
             border-radius: 20px;
             max-width: 350px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            /* Teks rata kiri agar daftar lebih rapi */
+        }
+        
+        .card p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        
+        .card h3 {
+            color: #ff4d6d;
+            margin-top: 0;
+            font-size: 1.1rem;
+            text-align: center;
         }
         
         .btn {
@@ -42,6 +56,7 @@
             cursor: pointer;
             margin-top: 20px;
             font-size: 16px;
+            font-weight: bold;
         }
         /* POPUP */
         
@@ -57,6 +72,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            z-index: 10;
         }
         
         .popup-content {
@@ -72,6 +88,7 @@
         
         .popup-content p {
             white-space: pre-line;
+            text-align: center;
         }
         
         .close {
@@ -121,24 +138,36 @@
     <div class="container">
         <h1>🎉 Happy Birthday 🎉</h1>
 
-        <div class="card">
+        <div class="card" style="text-align: center;">
             <p>
                 Hari ini adalah hari spesial 🎂✨<br> Semoga semua kebahagiaan selalu datang ke kamu 💖
             </p>
         </div>
 
         <div class="card">
-            <p>
-                Jangan lupa untuk selalu tersenyum 🌷<br> Kamu hebat sudah sampai sejauh ini 💫
-            </p>
+            <h3>Kenapa kamu spesial?</h3>
+            <p>☀️ Senyummu yang menenangkan</p>
+            <p>💪 Semangatmu yang luar biasa</p>
+            <p>💖 Kebaikan hatimu yang tulus</p>
+        </div>
+
+        <div class="card">
+            <h3>Doaku untukmu tahun ini:</h3>
+            <p>🌟 Semoga urusanmu selalu dimudahkan</p>
+            <p>🌟 Dikelilingi orang-orang baik</p>
+            <p>🌟 Bahagia lahir dan batin</p>
+        </div>
+
+        <div class="card">
+            <h3>Self Reminder:</h3>
+            <p style="text-align: center;">Kamu berharga, kamu dicintai, dan dunia lebih indah karena ada kamu di dalamnya 🌎✨</p>
         </div>
 
         <button class="btn" onclick="openPopup()">
-      Klik untuk peluk virtual 🤗
-    </button>
+            Klik untuk peluk virtual 🤗
+        </button>
     </div>
 
-    <!-- POPUP -->
     <div class="popup" id="popup">
         <div class="popup-content">
             <h2>🤗 Untuk Kamu</h2>
